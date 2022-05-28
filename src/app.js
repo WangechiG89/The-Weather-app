@@ -30,10 +30,11 @@ let iconElement=document.querySelector("#icon");
    humidityElement.innerHTML=response.data.main.humidity;
    windElement.innerHTML=Math.round(response.data.wind.speed);
    dateElement.innerHTML=formatDate(response.data.dt*1000);
-   iconElement.setAttribute=("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png `);
+   iconElement.setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png `);
+   iconElement.setAttribute("alt",response.data.weather[0].description);
 }
 
 let apiKey="f256af9198bc4036cf1455428925e38c";
-let city="Paris"
+let city="New York"
 let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl). then(displayTemperature)
