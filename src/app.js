@@ -13,7 +13,42 @@ let day=days [date.getDay()];
     return`${day} ${hours}:${minutes}`;
 }
 
+function displayForecast(){
+    let forecastElement=document.querySelector("#forecast");
 
+    let forecastHTML=`<div class="row">`;
+    let days =["Thur", "Fri", "Sat","Sun"];
+    days.forEach(function(day){
+
+    forecastHTML=forecastHTML+`
+           
+              <div class="col-2">
+                <div class="weather-forecast-date">${day}</div>
+
+                <img
+                  src="https://openweathermap.org/img/wn/50n@2x.png"
+                  alt=""
+                  width="36"
+                />
+                <div class="weather-forecast-temperature">
+                  <span class="weather-forecast-temperature-max">18° </span>
+                  <span class="weather-forecast-temperature-mini">12° </span>
+                </div>
+              </div>
+            </div>
+             `;
+
+
+
+    });
+      
+    forecastHTML=forecastHTML+`</div>`;
+
+    forecastElement.innerHTML=forecastHTML;
+    console.log(forecastHTML);
+
+   
+}
 
 function displayTemperature(response){
     
@@ -74,3 +109,4 @@ celsiusLink.addEventListener("click", displaycelsiusTemp);
 
 
 search("New York");
+displayForecast();
